@@ -1,0 +1,50 @@
+.tarefas_container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tarefa_item {
+  background-color: #263642;
+  padding: 1rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  border-radius: 8px;
+}
+
+.nome_tarefa {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.nome_tarefa p {
+  margin: 0;
+}
+
+.nome_tarefa input {
+  margin: 0;
+  padding: .6rem;
+}
+
+.delete-button {
+  padding: .4rem 1rem;
+  border-radius: .4rem;
+}
+
+button {
+  margin: 0;
+}
+
+.input_field {
+  display: flex;
+  gap: 1rem;
+}
+
+.adicionar-btn {
+  flex-shrink: 3;
+}

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>To do List</title>
 </head>
 <body>  
+  <main class="container">
+
+    <h1>To-do List</h1>
+
+    <form class="input_field">
+      <input type="text" name="tarefa" id="inputTarefa" placeholder="Digite o nome da tarefa...">
+      <input type="submit" class="adicionar-btn" name="adicionar" value="Adicionar">
+    </form>
+
+    <hr>
+    <section id="listaTarefas" class="tarefas_container">
+
+      <div class="tarefa_item">
+        <div class="nome_tarefa">
+          <input type="checkbox">
+          <p>Estudar programação funcional </p>
+        </div>
+        <div>
+          <button class="delete-button outline">X</button>
+        </div>
+      </div>
+      </div>
+
+    </section>
+
+  </main>
 </body>
 </html>
