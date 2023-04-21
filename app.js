@@ -52,7 +52,7 @@ function criaCheckbox(tarefa) {
   })
 
   // checkbox continuar marcado e texto riscado após atualizar a página de acordo com o local storage  
-  window.addEventListener('load', function() {
+  window.addEventListener("load", function() {
     if (tarefa.marcada == true) {
 
       checkboxEl.checked = true
@@ -71,25 +71,28 @@ function criaBtnDelete() {
   buttonEl.classList.add("delete-button")
   buttonEl.classList.add("outline")
   buttonEl.innerHTML += "X"
-
   divBtn.appendChild(buttonEl)
 
   // deletar tarefa
   buttonEl.addEventListener("click", function(e) {
-    const parentEl = e.target.parentElement.parentElement
-    parentEl.remove()
+    const divTarefa = e.target.parentElement.parentElement
+    divTarefa.remove()
 
-    // remover item do local storage
-    const textElement = divBtn.previousElementSibling.firstChild
-    const indexElRemove = tarefasArr.indexOf(textElement.textContent)
+    // pega o id da div da tarefa correspondente
+    let divTarefaId = divTarefa.dataset.id
 
-    console.log(indexElRemove)
-    tarefasArr.splice(indexElRemove, 1)
-
-    localStorage.setItem("tarefas", JSON.stringify(tarefasArr))
+    deletaElemento(divTarefaId)
   })
 
   return divBtn
+}
+
+function deletaElemento(id) {
+  // acha o index do objeto que a propriedade id é igual ao dataset id da div da tarefa
+  let elRemoveIndex = tarefasArr.findIndex((obj) => obj.id == id)
+  tarefasArr.splice(elRemoveIndex, 1)
+
+  localStorage.setItem("tarefas", JSON.stringify(tarefasArr))
 }
 
 function criaItem(tarefa) {
@@ -97,6 +100,7 @@ function criaItem(tarefa) {
   // cria div pai
   let novoItem = criarElemento("div") 
   novoItem.classList.add("tarefa_item")  
+  novoItem.dataset.id = tarefa.id
 
   // cria div do nome da tarefa
   let nomeTarefa = criarElemento("div")
@@ -118,7 +122,7 @@ function criaItem(tarefa) {
   nomeTarefa.appendChild(criaCheckbox(tarefa))
 
   // add botao de delete
-  novoItem.appendChild(criaBtnDelete())
+  novoItem.appendChild(criaBtnDelete(tarefa))
 }
 
 function criarElemento(tagName) {
