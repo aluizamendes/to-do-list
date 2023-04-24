@@ -10,18 +10,22 @@ tarefasArr.forEach((tarefa) => {
 novaTarefa.addEventListener("submit", function(e) {
   e.preventDefault()
 
-  const tarefaAtual = {
-    nome: inputTarefa.value,
-    marcada: false
-  }
+  // validação
+  if (inputTarefa.value != "") {
 
-  tarefaAtual.id = tarefasArr[tarefasArr.length - 1] ? (tarefasArr[tarefasArr.length - 1]).id + 1 : 0
-
-  criaItem(tarefaAtual)
-
-  // add ao local storage
-  tarefasArr.push(tarefaAtual)
-  localStorage.setItem("tarefas", JSON.stringify(tarefasArr)) 
+    const tarefaAtual = {
+      nome: inputTarefa.value,
+      marcada: false
+    }
+  
+    tarefaAtual.id = tarefasArr[tarefasArr.length - 1] ? (tarefasArr[tarefasArr.length - 1]).id + 1 : 0
+  
+    criaItem(tarefaAtual)
+  
+    // add ao local storage
+    tarefasArr.push(tarefaAtual)
+    localStorage.setItem("tarefas", JSON.stringify(tarefasArr)) 
+  }   
 
   // limpa input
   inputTarefa.value = ""
