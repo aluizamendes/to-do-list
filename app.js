@@ -74,12 +74,13 @@ function criaBtnDelete() {
   const buttonEl = criarElemento("button")
   buttonEl.classList.add("delete-button")
   buttonEl.classList.add("outline")
-  buttonEl.innerHTML += "X"
+  buttonEl.innerHTML += `<img src="assets/trash-2.svg">`
+
   divBtn.appendChild(buttonEl)
 
   // deletar tarefa
   buttonEl.addEventListener("click", function(e) {
-    const divTarefa = e.target.parentElement.parentElement
+    const divTarefa = e.target.parentElement.parentElement.parentElement
     divTarefa.remove()
 
     // pega o id da div da tarefa correspondente

@@ -100,8 +100,11 @@ h1 {
   cursor: pointer;
 }
 
+.delete-button img {
+  padding: .8rem;
+}
+
 .delete-button {
-  padding: .6rem .8rem;
   border-radius: .4rem;
   border: none;
   background-color: transparent;
