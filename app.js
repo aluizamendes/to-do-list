@@ -3,6 +3,7 @@ let listaTarefas = document.getElementById("listaTarefas")
 let inputTarefa = document.getElementById("inputTarefa")
 let tarefasArr = JSON.parse(localStorage.getItem("tarefas")) || []
 
+
 tarefasArr.forEach((tarefa) => {
   criaItem(tarefa)
 })
@@ -81,7 +82,12 @@ function criaBtnDelete() {
   // deletar tarefa
   buttonEl.addEventListener("click", function(e) {
     const divTarefa = e.target.parentElement.parentElement.parentElement
-    divTarefa.remove()
+
+    divTarefa.classList.add("hide")
+    
+    setTimeout(function() {
+      divTarefa.remove()
+    }, 400)
 
     // pega o id da div da tarefa correspondente
     let divTarefaId = divTarefa.dataset.id
